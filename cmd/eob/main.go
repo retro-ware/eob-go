@@ -405,6 +405,9 @@ func main() {
 		}
 		return
 	}
+	if _, err := os.Stat("data"); *dir == "" && err == nil {
+		*dir = "data" // goplay: started in games/eob with no arguments
+	}
 	if *dir == "" {
 		log.Fatal("set -data or EOB_DATA to your original Eye of the Beholder directory")
 	}
