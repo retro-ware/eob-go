@@ -448,6 +448,7 @@ func main() {
 	if !hardwareCursor {
 		ebiten.SetCursorMode(ebiten.CursorModeHidden) // the game draws its own cursor
 	}
+	ebiten.SetFullscreen(os.Getenv("GOPLAY_FULLSCREEN") == "1") // goplay starts games fullscreen
 	if err := ebiten.RunGame(&game{p: p, img: ebiten.NewImage(320, 200)}); err != nil && err != ebiten.Termination {
 		log.Fatal(err)
 	}
